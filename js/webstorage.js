@@ -6,23 +6,21 @@ const inputName = document.getElementById("input1");
 
 const save = document.getElementById("saveButton");
 const remove = document.getElementById("removeButton");
+const memoryKey = "inputName-memory";
 
-// prendo il form
-const myForm = document.getElementById("login");
-
-myForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
+save.addEventListener(`click`, function () {
+  console.log("Salvo");
   const name = inputName.value;
-  save.addEventListener(`click`, (e) => {
-    localStorage.setItem("Name", name);
-  });
 
-  remove.addEventListener(`click`, (e) => {
-    if (localStorage.getItem("Name")) {
-      localStorage.removeItem("Name");
-    }
-  });
+  // salvataggio di questa stringa nel localStorage sulla chiave prefissata
+  localStorage.setItem(memoryKey, name);
+  alert(`Contenuto Salvato`);
+});
 
-  myForm.reset();
+remove.addEventListener(`click`, function () {
+  inputName.value = ``;
+
+  // svuotare la chiave prefissata nel localStorage
+  localStorage.removeItem(memoryKey);
+  alert(`Nome rimosso`);
 });
