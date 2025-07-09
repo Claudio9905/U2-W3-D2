@@ -1,2 +1,2 @@
-# U2-W3-D2
+Esercitazione sull'uso di localStorage.
 
